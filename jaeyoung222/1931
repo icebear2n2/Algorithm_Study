@@ -1,0 +1,19 @@
+n = int(input())
+time = []
+for i in range(n) :
+    time.append(list(map(int,input().split())))
+time.sort()
+time.sort(key=lambda x : x[1])
+cnt = 0
+t = time[0][1]
+for ii in range(len(time)) :
+    if time[ii][0] == time[ii][1] :
+        cnt += 1
+        continue
+    if ii == 0 :
+        cnt += 1
+        continue
+    elif time[ii][0] >= t :
+        cnt += 1
+        t = time[ii][1]
+print(cnt)
