@@ -1,0 +1,13 @@
+#Initialization
+n = int(input())
+
+#create list and assign each time and sort
+l = list(map(int,input().split()))
+l.sort()
+
+#assign 'ans' and plus (time*(total num. of people - index of each people))
+#because by greedy algorithm, smaller number have to be plused more than larger number 
+ans = 0
+for i in range(n) :
+	ans += (n-i)*l[i]
+print(ans)

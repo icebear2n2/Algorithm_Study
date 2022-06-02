@@ -1,0 +1,25 @@
+#import modules
+import sys
+input = sys.stdin.readline
+
+#initialization
+t = int(input())
+
+
+for test in range(t) :
+    n = int(input())
+    l = []
+    for num in range(n) :
+        l.append(list(map(int,input().split())))
+    #sort by score of paper test
+    l.sort()
+    #assign the rank of interview test whose have the highest paper test score
+    a = l[0][1]
+    cnt = 1
+    #check next applicant's interview test score is higher than 'standard' one
+    for i in range(1,n) :
+        if l[i][1] < a :
+            cnt += 1
+            #change the 'standard'
+            a = l[i][1]
+    print(cnt)
