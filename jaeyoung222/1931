@@ -1,18 +1,29 @@
+#initialization
 n = int(input())
+
+#assign each time to list
 time = []
 for i in range(n) :
     time.append(list(map(int,input().split())))
+
+#sort by start time and by end time in order
 time.sort()
 time.sort(key=lambda x : x[1])
+
+#by greedy algorithm, we can just count the number of availble end time as many as possible
 cnt = 0
 t = time[0][1]
 for ii in range(len(time)) :
+    #count the meeting that ends out of the gate
     if time[ii][0] == time[ii][1] :
         cnt += 1
         continue
+    #count the first meeting
     if ii == 0 :
         cnt += 1
         continue
+    #if next meeting's start time is later than last one's end time,
+    #count and change the present one to last one
     elif time[ii][0] >= t :
         cnt += 1
         t = time[ii][1]
