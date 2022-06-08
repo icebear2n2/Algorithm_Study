@@ -1,0 +1,19 @@
+n = int(input())
+
+secret = list(map(int, input().split()))
+sentence = list(input())
+
+interpret = []
+for i in range(n) :
+    if sentence[i] == ' ' :
+        interpret.append(0)
+    elif sentence[i].isupper() :
+        interpret.append(ord(sentence[i])-64)
+    elif sentence[i].islower() :
+        interpret.append(ord(sentence[i])-70)
+secret.sort()
+interpret.sort()
+if secret == interpret :
+    print("y")
+else :
+    print("n")

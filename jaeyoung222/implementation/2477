@@ -1,0 +1,25 @@
+k = int(input())
+l = []
+for i in range(6) :
+    l.append(list(map(int, input().split())))
+
+l_hor = []
+l_ver = []
+for iii in l :
+    if iii[0] == 1 or iii[0] == 2 :
+        l_hor.append(iii[1])
+    elif iii[0] == 3 or iii[0] == 4 :
+        l_ver.append(iii[1])
+
+m_hor = max(l_hor)
+m_ver = max(l_ver)
+
+ll = []
+for ii in range(6) :
+    if l[ii][0] == l[(ii+2)%6][0] and l[(ii+1)%6][0] == l[(ii+3)%6][0] :
+        ll.append(l[(ii+2)%6][1])
+        ll.append(l[(ii+1)%6][1])
+mul = 1
+for e in range(2) :
+    mul *= ll[e]
+print((m_hor*m_ver-mul)*k)
