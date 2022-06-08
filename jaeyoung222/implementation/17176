@@ -1,8 +1,12 @@
 n = int(input())
 
+#assign the string
 secret = list(map(int, input().split()))
+
+#assign string's item to list
 sentence = list(input())
 
+#by using ASCII, interpret items and assign interpreted number to list 'interpret'
 interpret = []
 for i in range(n) :
     if sentence[i] == ' ' :
@@ -11,6 +15,8 @@ for i in range(n) :
         interpret.append(ord(sentence[i])-64)
     elif sentence[i].islower() :
         interpret.append(ord(sentence[i])-70)
+        
+#sorting two list and compare (q. working w/o sorting?)
 secret.sort()
 interpret.sort()
 if secret == interpret :
